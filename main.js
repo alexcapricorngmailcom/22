@@ -9,35 +9,48 @@
 // P.S. Делаем всё через синтаксис class, не через функции 😄
 
 class MobilePhone {
-    constructor(brand, series, number, text) {
+    constructor(brand, series) {
         this.brand = brand;
         this.series = series;
-        this.number = number;
-        this.text = text;
     }
 
     call(number) {
-        return this.number;
+        console.log(number);
     }
 
-    sms(text) {
-        return `${this.number} ${this.text}`;
+    sms(number, text) {
+        console.log(number);
+        console.log(text);
     }
 }
 
-const nokla = new MobilePhone('Nokia', 3310, +380933888888, 'Перезвони');
+const nokla = new MobilePhone('nokla', 3310);
 
 class Smartphone extends MobilePhone {
-    constructor(size, touchtype) {
-        super(); 
+    constructor(brand, series, size) {
+        super(brand, series); 
         this.size = size;
-        this.touchtype = touchtype;
     }
 
     touch(touchtype) {
-        return `В вашей модели ${this.touchtype}`;
+        console.log('В вашей модели ' + touchtype);
     }
 }
 
-const huyawei = new Smartphone('6 дюймов', 'десяти пальцевый тачпад');
+const huyawei = new Smartphone('huyawei', 'XXL', '32Gb');
+
+class Tablet extends MobilePhone {
+    constructor(brand, series, screenSize) {
+        super(brand, series);
+        this.screenSize = screenSize;
+    }
+
+    wifi(network) {
+        console.log('Вы подключены к сети ' + network);
+    }
+}
+
+const iypade = new Tablet('iypade', 1745, '11"');
+
+
 
